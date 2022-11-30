@@ -28,4 +28,4 @@ You will also find several folders each named after a programming language. **In
 
 ### How can I contribute to this?
 
-If you want to contribute fork this repository and either add a new language or correct a mistake / propose a new solution to an existing one.
+If you want to contribute create a branch from this repository and either add a new language or correct a mistake / propose a new solution to an existing one.
