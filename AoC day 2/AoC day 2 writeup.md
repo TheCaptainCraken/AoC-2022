@@ -1,7 +1,6 @@
 # Advent of Code day 1
 > This challenge has not been solved yet in this languages:
 > - C
-> - C++
 > - Python 3
 > - Rust
 
