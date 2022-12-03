@@ -1,19 +1,20 @@
 # Advent of Code day 1
-> This challenge has not been solved yet in this languages:
-> - C
-> - Python 3
-> - Rust
 
-## First part 
+> This challenge has not been solved yet in this languages:
+>
+> - Python 3
+
+## First part
+
 The Elves begin to set up camp on the beach. To decide whose tent gets to be closest to the snack storage, a giant [Rock Paper Scissors](https://en.wikipedia.org/wiki/Rock_paper_scissors) tournament is already in progress.
 
 Rock Paper Scissors is a game between two players. Each game contains many rounds; in each round, the players each simultaneously choose one of Rock, Paper, or Scissors using a hand shape. Then, a winner for that round is selected: Rock defeats Scissors, Scissors defeats Paper, and Paper defeats Rock. If both players choose the same shape, the round instead ends in a draw.
 
-Appreciative of your help yesterday, one Elf gives you an *encrypted strategy guide* (your puzzle input) that they say will be sure to help you win. "The first column is what your opponent is going to play: `A` for Rock, `B` for Paper, and `C` for Scissors. The second column--" Suddenly, the Elf is called away to help with someone's tent.
+Appreciative of your help yesterday, one Elf gives you an _encrypted strategy guide_ (your puzzle input) that they say will be sure to help you win. "The first column is what your opponent is going to play: `A` for Rock, `B` for Paper, and `C` for Scissors. The second column--" Suddenly, the Elf is called away to help with someone's tent.
 
 The second column, you reason, must be what you should play in response: `X` for Rock, `Y` for Paper, and `Z` for Scissors. Winning every time would be suspicious, so the responses must have been carefully chosen.
 
-The winner of the whole tournament is the player with the highest score. Your **total score** is the sum of your scores for each round. The score for a single round is the score for the **shape you selected** (1 for Rock, 2 for Paper, and 3 for Scissors) plus the score for the *outcome of the round* (0 if you lost, 3 if the round was a draw, and 6 if you won).
+The winner of the whole tournament is the player with the highest score. Your **total score** is the sum of your scores for each round. The score for a single round is the score for the **shape you selected** (1 for Rock, 2 for Paper, and 3 for Scissors) plus the score for the _outcome of the round_ (0 if you lost, 3 if the round was a draw, and 6 if you won).
 
 Since you can't be sure if the Elf is trying to help you or trick you, you should calculate the score you would get if you were to follow the strategy guide.
 
@@ -36,6 +37,7 @@ In this example, if you were to follow the strategy guide, you would get a total
 **What would your total score be if everything goes exactly according to your strategy guide?**
 
 ### Solution
+
 To solve the first part we simply used two dictionaries: one keeping track of the score obtained by choosing a move (rock, paper, scissors) and the other tracking the outcome of every possible match (9 in total).
 
 Then we just used those dictionaries to calculate the sum.
@@ -49,9 +51,8 @@ foreach test_case:
 	sum += dictionary_of_match_scores[test_case]
 ```
 
+## Second part
 
-
-## Second part 
 The Elf finishes helping with the tent and sneaks back over to you. "Anyway, the second column says how the round needs to end: `X` means you need to lose, `Y` means you need to end the round in a draw, and `Z` means you need to win. Good luck!"
 
 The total score is still calculated in the same way, but now you need to figure out what shape to choose so the round ends as indicated. The example above now goes like this:
@@ -65,6 +66,7 @@ Now that you're correctly decrypting the ultra top secret strategy guide, you wo
 Following the Elf's instructions for the second column, **what would your total score be if everything goes exactly according to your strategy guide?**
 
 ### Solution
+
 The idea to solve the second part is the same as the first. We just had to change the dictionaries. We used 3 of them:
 
 1. `selection_scores` keeps track of the score associated for every move. For example `A` is mapped to `1`
@@ -81,4 +83,3 @@ foreach test_case:
 	sum += match_scores[test_case.outcome]
 	sum += selection_scores[cheat_sheet[test_case]]
 ```
-
